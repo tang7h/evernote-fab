@@ -1,0 +1,141 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background: #eee;
+}
+.fab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #2DBE60;
+  margin: 8px;
+  transition: all .1s ;
+  box-shadow: 0 4px 8px rgba(0,0,0,.14);
+  position: relative;
+}
+.fab:active {
+  transform: scale(.8);
+}
+.fab-primary {
+  width: 56px;
+  height: 56px;
+
+}
+.fab-primary .icon {
+  background-image: url(icon/iconfont-jiahao1.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  transition: transform .2s;
+}
+.fab-secondary {
+  width: 40px;
+  height: 40px;
+  animation: show-fab-secondary .2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes show-fab-secondary {
+  from{
+    opacity: 0;
+    transform: scale(0);
+  }
+  to{
+    opacity: 1;
+  }
+}
+a:nth-child(1) .fab-secondary {
+  animation-delay: .02s;
+}
+a:nth-child(2) .fab-secondary {
+  animation-delay: .04s;
+}
+a:nth-child(3) .fab-secondary {
+  animation-delay: .06s;
+}
+a:nth-child(4) .fab-secondary {
+  animation-delay: .08s;
+}
+a:nth-child(5) .fab-secondary {
+  animation-delay: .1s;
+}
+.fab .icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+}
+.fab .tag {
+  display: block;
+  position: absolute;
+  right: 64px;
+  bottom: 50%;
+  margin-bottom: -12px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  color: #fff;
+  background: rgba(0,0,0,.54);
+}
+
+.section-fab {
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+
+}
+.fabs {
+  display: flex;
+  flex-flow: column-reverse wrap;
+  align-items:center;
+  display: none;
+}
+#fab-main {
+  display: none;
+}
+#fab-main:checked+.section-fab .fabs {
+  display: flex;
+}
+#fab-main:checked+.section-fab .fab-primary .icon {
+  transform: rotate(135deg);
+}
+
+#fab-main:checked+.section-fab .mask {
+  display: block;
+}
+
+.mask {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  display: none;
+}
+.mask-ripple {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  animation: ripple .2s ease-in;
+  animation-fill-mode: forwards;;
+
+}
+@keyframes ripple {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+    transform: scale(50);
+  }
+}
