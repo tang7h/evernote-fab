@@ -156,6 +156,7 @@ body {
 }
 
 .mask {
+  position: fixed;
   z-index: -1;
 }
 .mask-ripple {
