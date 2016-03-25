@@ -11,7 +11,7 @@ body {
   border-radius: 50%;
   background: #2DBE60;
   margin: 8px;
-  transition: all .1s ;
+  transition: transform .1s ;
   box-shadow: 0 4px 8px rgba(0,0,0,.14);
 }
 .fab:active {
@@ -151,7 +151,7 @@ body {
 }
 
 #fab-toggle:checked+.section-fab .mask-ripple {
-  animation: ripple-copy 0.3s ease-in;
+  animation: ripple 0.3s ease-in;
   animation-fill-mode: both;
 }
 
@@ -159,15 +159,15 @@ body {
   z-index: -1;
 }
 .mask-ripple {
-  width: 40px;
-  height: 40px;
+  width: 2000px;
+  height: 2000px;
+  transform: scale(0.02);
   background: rgba(255,255,255,.95);;
   border-radius: 50%;
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  animation: ripple 0.3s ease-in reverse;
-  animation-fill-mode: backwards;
+  bottom: -948px;
+  right: -948px;
+  animation: ripple-fade 0.2s ease-in;
 }
 @keyframes ripple {
   from{
@@ -175,15 +175,20 @@ body {
   }
   to{
     opacity: 1;
-    transform: scale(50);
+    transform: scale(1);
   }
 }
-@keyframes ripple-copy {
+@keyframes ripple-fade {
   from{
+    opacity: 1;
+    transform: scale(1);
+  }
+  99%{
     opacity: 0;
+    transform: scale(1);
   }
   to{
-    opacity: 1;
-    transform: scale(50);
+    opacity: 0;
+    transform: scale(0.02);
   }
 }
