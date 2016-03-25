@@ -132,6 +132,7 @@ body {
   flex-direction: column-reverse;
   align-items: center;
   width: 72px;
+  -webkit-tap-highlight-color: transparent;
 }
 .fabs {
   display: flex;
